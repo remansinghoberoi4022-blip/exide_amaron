@@ -1,0 +1,339 @@
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+    }
+
+    /* Scroll animations */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .reveal.active,
+    .reveal-left.active,
+    .reveal-right.active {
+      opacity: 1;
+      transform: translate(0);
+    }
+
+    .delay-100 {
+      transition-delay: 100ms;
+    }
+
+    .delay-200 {
+      transition-delay: 200ms;
+    }
+
+    .delay-300 {
+      transition-delay: 300ms;
+    }
+
+    /* Hero grid */
+
+    .hero-grid {
+      background-image:
+        linear-gradient(
+          rgba(37, 99, 235, 0.06) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(37, 99, 235, 0.06) 1px,
+          transparent 1px
+        );
+
+      background-size: 50px 50px;
+
+      mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent
+      );
+    }
+
+    /* Hero image */
+
+    .hero-image {
+      transition: transform 0.7s ease;
+    }
+
+    .hero-image:hover {
+      transform: scale(1.03);
+    }
+
+    /* Reduced motion */
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal,
+      .reveal-left,
+      .reveal-right {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* =====================================================
+   MODERN SECTION BACKGROUNDS
+===================================================== */
+
+.section-glow {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.section-glow::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  left: -180px;
+  top: 10%;
+  border-radius: 9999px;
+  background: rgba(37, 99, 235, 0.08);
+  filter: blur(90px);
+  z-index: -1;
+  animation: ambientFloat 9s ease-in-out infinite;
+}
+
+.section-glow::after {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  right: -160px;
+  bottom: 5%;
+  border-radius: 9999px;
+  background: rgba(56, 189, 248, 0.07);
+  filter: blur(100px);
+  z-index: -1;
+  animation: ambientFloat 11s ease-in-out infinite reverse;
+}
+
+@keyframes ambientFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(25px, -30px, 0) scale(1.08);
+  }
+}
+
+
+/* =====================================================
+   SUBTLE DOT FIELD
+===================================================== */
+
+.soft-dots {
+  background-image: radial-gradient(
+    rgba(37, 99, 235, 0.12) 1px,
+    transparent 1px
+  );
+
+  background-size: 28px 28px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+}
+
+
+/* =====================================================
+   SECTION REVEAL
+===================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(45px) scale(0.98);
+  filter: blur(4px);
+
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s ease;
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-55px);
+  filter: blur(4px);
+
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s ease;
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(55px);
+  filter: blur(4px);
+
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s ease;
+}
+
+.reveal.active,
+.reveal-left.active,
+.reveal-right.active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+}
+
+
+/* =====================================================
+   STAGGER
+===================================================== */
+
+.delay-100 {
+  transition-delay: 100ms;
+}
+
+.delay-200 {
+  transition-delay: 200ms;
+}
+
+.delay-300 {
+  transition-delay: 300ms;
+}
+
+.delay-400 {
+  transition-delay: 400ms;
+}
+
+.delay-500 {
+  transition-delay: 500ms;
+}
+
+
+/* =====================================================
+   MODERN CARD HOVER
+===================================================== */
+
+.modern-card {
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s ease,
+    border-color 0.5s ease;
+}
+
+.modern-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 25px 70px rgba(37, 99, 235, 0.12);
+}
+
+
+/* =====================================================
+   IMAGE GALLERY
+===================================================== */
+
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.gallery-card img {
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gallery-card:hover img {
+  transform: scale(1.07);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(2, 6, 23, 0.8),
+      transparent 55%
+    );
+}
+
+
+/* =====================================================
+   DARK MODE BACKGROUND
+===================================================== */
+
+.dark .section-glow::before {
+  background: rgba(37, 99, 235, 0.14);
+}
+
+.dark .section-glow::after {
+  background: rgba(14, 165, 233, 0.08);
+}
+
+.dark .soft-dots {
+  background-image: radial-gradient(
+    rgba(96, 165, 250, 0.12) 1px,
+    transparent 1px
+  );
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal,
+  .reveal-left,
+  .reveal-right {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
